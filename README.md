@@ -22,3 +22,41 @@ However, obstacle avoidance algorithm I provide is very rudimentary, have very l
 - [3] M. C. De Simone, Z. B. Rivera, and D. Guida, "Obstacle avoidance system for unmanned ground vehicles by using ultrasonic sensors," *Machines*, vol. 6, no. 2, p. 18, 2018.
 
 - [4] A. Shitsukane, W. Cheruiyot, C. Otieno, and M. Mvurya, "Fuzzy logic sensor fusion for obstacle avoidance mobile robot," in *2018 IST-Africa Week Conference (IST-Africa)*, May 2018, p. 1.
+
+## Pseudocode for software integration (Provided by Ollie)
+
+graph TD
+    Start[Start Loop] --> Emergency{Front < 8cm?}
+    
+    %% Emergency Logic
+    Emergency -- Yes --> EmergencyTurn[Set Committed Turn]
+    EmergencyTurn --> LockTurn[Lock Turn Timer]
+    LockTurn --> CheckSweep
+    Emergency -- No --> CheckSweep
+    
+    %% Sweep Logic
+    CheckSweep{Time to Sweep?}
+    CheckSweep -- Yes --> Scan[Servo Scan & Update Distances]
+    Scan --> FindGaps
+    CheckSweep -- No --> FindGaps[Find Open Gaps]
+    
+    %% Trap Logic
+    FindGaps --> Trapped{Gaps Empty?}
+    Trapped -- Yes --> TimerCheck{Timeout > 3s?}
+    TimerCheck -- Yes --> Stop([STOP ROBOT])
+    TimerCheck -- No --> Start
+    Trapped -- No --> CalcPath
+    
+    %% Path Planning
+    CalcPath[Find Widest Gap Center] --> CalcSpeed[Calc Speed based on Front Dist]
+    
+    %% Smoothing
+    CalcSpeed --> Override{Emergency Locked?}
+    Override -- Yes --> ApplyHardTurn[Apply Hard Turn]
+    Override -- No --> SmoothTurn[Apply Smooth Weighted Turn]
+    
+    %% Output
+    ApplyHardTurn --> Motors[Set Motors]
+    SmoothTurn --> Motors
+    Motors --> Wait[Wait 30-50ms]
+    Wait --> Start
