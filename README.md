@@ -8,10 +8,12 @@ https://elegoo-downloads.oss-us-west-1.aliyuncs.com/stem-downloads/02%20Robot%20
 The motion and direction control of the four motors were achieved in the move_direction folder.
 
 # 12/02/2026
-The code I put in the move folder implements obstacle detection using the ultrasonic module and enables obstacle avoidance driving.
+## Ultrasound Sensor Scan 
+In the code in the ultrasound_scan folder, I implemented a method to scan 15-165 degrees using an ultrasound sensor and build a radar map.
+## Obstacle
+The code I put in the obstacle_move folder implements obstacle detection using the ultrasonic module and enables obstacle avoidance driving.
 
-However, obstacle avoidance algorithms are very rudimentary, have very low driving efficiency, and are prone to errors. Therefore, I did some research and found the following papers.
-
+However, obstacle avoidance algorithm I provide is very rudimentary, have very low driving efficiency, and is prone to errors. Therefore, I I did some research and found the following papers.
 
 - [1] T. T. Cheng and M. N. Mahyuddin, "Implementation of behaviour-based mobile robot for obstacle avoidance using a single ultrasonic sensor," in *2009 Innovative Technologies in Intelligent Systems and Industrial Applications*, 2009, pp. 244–248.
 
