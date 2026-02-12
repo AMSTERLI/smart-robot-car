@@ -6,3 +6,17 @@ https://elegoo-downloads.oss-us-west-1.aliyuncs.com/stem-downloads/02%20Robot%20
 
 # 05/02/2026
 The motion and direction control of the four motors were achieved in the move_direction folder.
+
+# 12/02/2026
+The code I put in the move folder implements obstacle detection using the ultrasonic module and enables obstacle avoidance driving.
+
+However, obstacle avoidance algorithms are very rudimentary, have very low driving efficiency, and are prone to errors. Therefore, I did some research and found the following papers.
+
+
+- [1] T. T. Cheng and M. N. Mahyuddin, "Implementation of behaviour-based mobile robot for obstacle avoidance using a single ultrasonic sensor," in *2009 Innovative Technologies in Intelligent Systems and Industrial Applications*, 2009, pp. 244–248.
+
+- [2] Q. Liu, Y. G. Lu, and C. X. Xie, "Optimal genetic fuzzy obstacle avoidance controller of autonomous mobile robot based on ultrasonic sensors," in *2006 IEEE International Conference on Robotics and Biomimetics*, Dec. 2006, pp. 125–129.
+
+- [3] M. C. De Simone, Z. B. Rivera, and D. Guida, "Obstacle avoidance system for unmanned ground vehicles by using ultrasonic sensors," *Machines*, vol. 6, no. 2, p. 18, 2018.
+
+- [4] A. Shitsukane, W. Cheruiyot, C. Otieno, and M. Mvurya, "Fuzzy logic sensor fusion for obstacle avoidance mobile robot," in *2018 IST-Africa Week Conference (IST-Africa)*, May 2018, p. 1.
