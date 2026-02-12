@@ -25,6 +25,7 @@ However, obstacle avoidance algorithm I provide is very rudimentary, have very l
 
 ## Pseudocode for software integration (Provided by Ollie)
 
+```mermaid
 graph TD
     Start[Start Loop] --> Emergency{Front < 8cm?}
     
